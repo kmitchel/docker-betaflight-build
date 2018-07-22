@@ -29,17 +29,9 @@ ENV ARM_SDK_DIR="/usr/"
 #
 # What the commands do:
 
-CMD if [ -z ${PLATFORM} ]; then \
-        PLATFORM="NAZE"; \
-    fi && \
-    EXTRA_OPTIONS="" && \
-    if [ -n ${OPTIONS} ]; then \
+CMD if [ -n ${OPTIONS} ]; then \
+        EXTRA_OPTIONS=""; \
+    else \
         EXTRA_OPTIONS="OPTIONS=${OPTIONS}"; \
     fi && \
-    if [ ${PLATFORM} = ALL ]; then \
-        make ARM_SDK_DIR=${ARM_SDK_DIR} clean_all && \
-        make ARM_SDK_DIR=${ARM_SDK_DIR} all ${EXTRA_OPTIONS}; \
-    else \
-        make ARM_SDK_DIR=${ARM_SDK_DIR} clean TARGET=${PLATFORM} && \
-        make ARM_SDK_DIR=${ARM_SDK_DIR} TARGET=${PLATFORM} ${EXTRA_OPTIONS}; \
-    fi
+    make ARM_SDK_DIR=${ARM_SDK_DIR} ${PLATFORM} ${EXTRA_OPTIONS}

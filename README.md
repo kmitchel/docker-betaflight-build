@@ -39,7 +39,7 @@ You can pass optional parameters to the Docker build like so:
 
 These parameters are supported:
 
-- `PLATFORM=<target name>` The platform to build for. Use `ALL` to build for all platforms. (default: `NAZE`)
+- `PLATFORM=<target name>` The platform to build for.  (default: `BETAFLIGHTF3`)
 - `OPTIONS=<options>` specify build options to be used as defines during the build
 
 ### Flashing the built binary
